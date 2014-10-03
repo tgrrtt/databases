@@ -1,0 +1,22 @@
+{
+  "name": "chatterbox",
+  "version": "0.0.1",
+  "main": "server/main.js",
+  "author": "Hack Reactor",
+  "license": "Copyright 2013, Hack Reactor. All rights reserved.",
+  "scripts": {
+    "test": "mocha server/spec -R spec",
+    "watch": "mocha server/spec -w -R spec",
+    "bail": "mocha server/spec --bail -R spec"
+  },
+  "devDependencies": {
+    "mocha": "^1.21.4",
+    "request": "^2.34.0",
+    "chai": "^1.9.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.9.0",
+    "express": "^4.9.5",
+    "firebase": "^1.0.24"
+  }
+}
