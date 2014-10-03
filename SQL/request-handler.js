@@ -9,6 +9,7 @@ var findUser = db.findUser;
 
 
 exports.postMessage = function(req, res) {
+  //console.log("handling a post request");
   // declare this variable so we can retain access to it throughout the entire promise chain.
   var message;
 
@@ -26,6 +27,7 @@ exports.postMessage = function(req, res) {
 
   parseData(req, function(_, msg) {
       message = msg;
+
       findUser(msg.username, function (err, results) {
         // no results/0 results
         if (!results || !results.length) {
@@ -41,6 +43,7 @@ exports.postMessage = function(req, res) {
 
 exports.getMessages = function(req, res) {
   findMessages(function(err, messages) {
+      //console.log('getMessages', messages);
       serverHelpers.sendResponse(res, messages);
   });
 };

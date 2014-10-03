@@ -1,3 +1,5 @@
+DROP DATABASE chat;
+
 CREATE DATABASE chat;
 
 USE chat;
@@ -27,10 +29,14 @@ CREATE TABLE messages (
 );
 
 
-/*  Execute this file from the command line by typing:
- *    mysql < schema.sql
- *  to create the database and the tables.*/
+INSERT INTO chat.users (username) VALUES ("Tyler"),("Sebastian");
+
+INSERT INTO chat.rooms (roomname) VALUES ("main"), ("/b"), ("Hello");
 
 
+INSERT INTO chat.messages (text,user_id,room_id)
+VALUES ("Men like you can never change!",
+		(SELECT id FROM chat.users WHERE username = "Tyler"),
+		(SELECT id FROM chat.rooms WHERE roomname = "Lobby"));
 
-
+SELECT * FROM chat.messages;
